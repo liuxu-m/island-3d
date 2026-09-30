@@ -1,6 +1,12 @@
 # 孤岛漫游 · Island Walk
 
+> 仓库:https://github.com/liuxu-m/island-3d
+
 3D 海岛漫游原型:程序化海岛 + 大海水面 + 第三人称角色(走/跑/跳/游泳)。
+
+![海岛俯瞰](shots/latest.png)
+
+![玩家视角](shots/latest-ground.png)
 
 严格遵循 Obsidian《AI 3D游戏开发方案》的硬决策:
 
@@ -17,6 +23,8 @@
 ## 跑起来
 
 ```bash
+git clone https://github.com/liuxu-m/island-3d.git
+cd island-3d
 npm install
 npm run dev        # http://localhost:5199
 ```
@@ -44,6 +52,16 @@ src/player/Player.tsx   角色控制(街机手感)+ 第三人称相机(不穿山
 src/ui/HUD.tsx          操作提示 + FPS/坐标
 scripts/shot.mjs        截图回环
 src/world/verify.test.ts L1 断言
+```
+
+## 环境备注(Windows + Node 22)
+
+若 `npm install` 卡在 esbuild/rollup 阶段,可按顺序处理:
+
+```bash
+npm install --ignore-scripts                 # 1. 跳过 postinstall
+node node_modules/esbuild/install.js         # 2. 手动补 esbuild 二进制
+npm i --no-save @rollup/rollup-win32-x64-msvc # 3. 补 npm 漏装的平台可选依赖
 ```
 
 ## 已知边界(后续阶段的事)
