@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.npm_cache/
+.vite/
+# 截图存档(每次 npm run shot 都会生成带时间戳的副本),只跟踪 latest 两张
+shots/island-*.png
+*.log
+.DS_Store
